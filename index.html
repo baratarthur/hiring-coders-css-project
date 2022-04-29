@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./Logo_do_Buenozilla_1.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Arthur (Buenozilla) Barata</title>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="./Logo_do_Buenozilla_1.png" alt="Logo Buenozilla">
+        </div>
+        <ul>
+            <li>
+                <a href="https://github.com/baratarthur" target="_blank" rel="noopener noreferrer">
+                    github
+                </a>
+            </li>
+            <li>
+                <a href="mailto:arthurpbarata@gmail.com" target="_blank" rel="noopener noreferrer">
+                    email me
+                </a>
+            </li>
+            <li>
+                <a href="https://wa.me/61992573332" target="_blank" rel="noopener noreferrer">
+                    tell me a joke
+                </a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <section class="container">
+            <div class="name">
+                <h1>Arthur (Buenozilla) Barata</h1>
+                <h5>Computer Engineer</h5>
+            </div>
+
+            <div id="arrow" onclick="displayAbout()">
+                <i id="animation" class="fas fa-sort-down" ></i>
+            </div>
+
+            <div id="about">
+                <p>
+                    Desenvolvedor web que sempre buscou aprender o que há de novo nesse mundo da tecnologia. <br/>
+                    Acredito que o conhecimento pode mudar o mundo, por isso sempre compartilho o que sei. <br/>
+                    Sou competitivo e estou me desafiando o tempo todo, seja no mundo dos esportes, nos games ou até mesmo hackatons. <br/>
+                    Gosto de tudo que envolve a área de TI, portanto fique a vontade para me chamar no Linkedin para conversar sobre novas tendências.
+                </p>
+            </div>
+
+            <div class="form">
+                <div>
+                    <p>Deixe seu contato!</p>
+                </div>
+                <form action="">
+                    <input type="text" placeholder="seu melhor email :)">
+                    <button>enviar!</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script>
+        function displayAbout() {
+            var arrow = document.getElementById('animation');
+            arrow.classList.toggle('rotate');
+
+            var about = document.getElementById('about');
+            about.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

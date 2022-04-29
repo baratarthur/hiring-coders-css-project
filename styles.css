@@ -1,0 +1,172 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #F1FAEE;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 700;
+}
+
+img {
+    height: 90px;
+    border-radius: 50%;
+}
+
+body {
+    background: url(./pexels-instawalli-176851.jpg) no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px;
+    box-shadow: 1px 1px 10px 1px #1D3557;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+header ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header ul li {
+    margin: 0 8px;
+}
+
+header ul li a {
+    transition: 400ms;
+}
+
+header ul li a:hover {
+    color: #A8DADC;
+    text-decoration: underline;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    padding: 16px;
+    margin: 32px 0;
+    max-width: 80%;
+    box-shadow: 1px 1px 10px 1px #1D3557;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.container .name h1 {
+    font-size: 3rem;
+}
+
+.container .name h5 {
+    font-size: 1.5rem;
+}
+
+#arrow {
+    font-size: 24px;
+    padding: 8px 0;
+    cursor: pointer;
+    animation: blink 1s steps(5, start) infinite;
+}
+
+#animation {
+    transition: 400ms ease-in-out;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.active {
+    display: block !important;
+}
+
+#about {
+    display: none;
+    max-width: 600px;
+    padding: 16px 0;
+    margin: 0 auto;
+}
+
+.form {
+    width: 100%;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.form div p {
+    padding: 8px;
+}
+
+.form input {
+    min-width: 50%;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    color: #1D3557;
+}
+
+.form button {
+    min-width: 15%;
+    background: linear-gradient(to right, #E63946 50%, #1D3557 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    padding: 4px 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+    border-radius: 0 5px 5px 0;
+    margin-left: -4px;
+}
+
+.form button:hover {
+    background-position: left bottom;
+    color: #1D3557;
+}
+
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+@media only screen and (max-width: 480px)  {
+    
+    .container .name h1 {
+        font-size: 2rem;
+    }
+
+    .container .name h5 {
+        font-size: 1rem;
+    }
+
+
+    #about p {
+        text-align: justify;
+    }
+}
