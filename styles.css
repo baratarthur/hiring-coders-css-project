@@ -46,6 +46,7 @@ header {
 header ul {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 header ul li {
@@ -70,7 +71,7 @@ main {
 
 .container {
     text-align: center;
-    padding: 16px;
+    padding: 32px;
     margin: 32px 0;
     max-width: 80%;
     box-shadow: 1px 1px 10px 1px #1D3557;
@@ -149,9 +150,58 @@ main {
     color: #1D3557;
 }
 
+#github-info {
+    margin: 16px;
+}
+
+#github-info .github-description {
+    font-weight: 700;
+    padding: 8px 0;
+}
+
+#github-info .github-sice {
+    opacity: 0.6;
+}
+
+#github-repos {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 16px;
+}
+
+#github-repos .github-repo {
+    padding: 8px;
+    margin: 8px;
+}
+
+#github-repos .github-repo a {
+    transition: 400ms;
+}
+
+#github-repos .github-repo a:hover {
+    color: #A8DADC;
+    text-decoration: underline;
+}
+
+#github-repos .languages-list {
+    font-weight: 700;
+}
+
+#github-repos .repo-start-date {
+    opacity: 0.6;
+    font-size: 16px;
+}
+
 @keyframes blink {
     to {
         visibility: hidden;
+    }
+}
+
+@media only screen and (max-width: 720px)  {
+    #github-repos {
+        grid-template-columns: 1fr;
     }
 }
 

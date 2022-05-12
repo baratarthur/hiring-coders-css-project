@@ -32,7 +32,7 @@
             </li>
             <li>
                 <a href="https://wa.me/61992573332" target="_blank" rel="noopener noreferrer">
-                    tell me a joke
+                    me mande uma mensagem
                 </a>
             </li>
         </ul>
@@ -43,6 +43,12 @@
                 <h1>Arthur (Buenozilla) Barata</h1>
                 <h5>Computer Engineer</h5>
             </div>
+
+            <div id="github-info"></div>
+
+            <h3>Alguns dos meus repositórios favoritos:</h3>
+
+            <div id="github-repos"></div>
 
             <div id="arrow" onclick="displayAbout()">
                 <i id="animation" class="fas fa-sort-down" ></i>
@@ -76,6 +82,80 @@
             var about = document.getElementById('about');
             about.classList.toggle('active');
         }
+
+        (async function fetchGithubUserData() {
+            const url = 'https://api.github.com/users/baratarthur';
+            const favoriteRepos = [
+                'tdd-bdd-jasmine-cucumber',
+                'tcc-api',
+                'hiring-coders-css-project',
+                'green-footprint',
+                'projetos_java'
+            ];
+
+
+            const [ profileRequest, reposRequest ] = await Promise.all([
+                fetch(url),
+                fetch(url + '/repos')
+            ]);
+
+            const [ profileJson, reposJson ] = await Promise.all([
+                profileRequest.json(),
+                reposRequest.json()
+            ]);
+
+            const githubDiv = document.getElementById('github-info');
+            
+            const image = document.createElement('img');
+            image.src = profileJson.avatar_url;
+            image.alt = "Github user info"
+            githubDiv.appendChild(image);
+
+            const paragraph = document.createElement('p');
+            paragraph.className = "github-description";
+            paragraph.innerText = '"'+ profileJson.bio +'"'
+            githubDiv.appendChild(paragraph);
+
+
+            const startOnGithubDate = new Date(profileJson.created_at);
+            const dateParagraph = document.createElement('p');
+            dateParagraph.className = 'github-sice';
+            dateParagraph.innerText = 'Desde ' + startOnGithubDate.toLocaleDateString('pt-br') + ' no github!'
+            githubDiv.appendChild(dateParagraph);
+
+            const githubReposDiv = document.getElementById('github-repos');
+
+            reposJson.filter(repo => favoriteRepos.includes(repo.name))
+                .map(async (repo) => {
+                    const repoDiv = document.createElement('div');
+                    repoDiv.classList.add('github-repo');
+
+                    const repoAnchor = document.createElement('a');
+                    repoAnchor.href = repo.html_url;
+                    repoAnchor.target = "_blank";
+                    repoAnchor.innerText = repo.name;
+                    repoDiv.appendChild(repoAnchor);
+
+                    const repoLanguagesReq = await fetch(repo.languages_url);
+                    const languages = await repoLanguagesReq.json();
+                    const repoLanguages = document.createElement('p');
+                    repoLanguages.className = 'languages-list';
+                    repoLanguages.innerText = Object.keys(languages)[0] + (
+                        Object.keys(languages).slice(1).length > 0 ?
+                            ', '.concat(Object.keys(languages).slice(1))
+                            : ''
+                    );
+                    repoDiv.appendChild(repoLanguages);
+
+                    const repoDate = document.createElement('p');
+                    const repoStartDate = new Date(repo.created_at);
+                    repoDate.className = 'repo-start-date';
+                    repoDate.innerText = 'Criado em ' + repoStartDate.toLocaleDateString('pt-br');
+                    repoDiv.appendChild(repoDate);
+
+                    githubReposDiv.appendChild(repoDiv)
+                });
+        })()
     </script>
 </body>
 </html>
